@@ -17,11 +17,13 @@ pipeline {
             steps {
                 echo '=== Building Docker Image ==='
 
-                    sh '''
-                     app= sudo docker build -t flask-app-image .
-                     '''
+                    script {
+                     
+                     app= docker.build("Bibek-DevOps/Flask-APP-CICD")
+                    
                 }
             }
+            
         }
         
         stage('Push Docker Image') {
