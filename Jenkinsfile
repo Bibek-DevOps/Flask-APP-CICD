@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage'(check source code'){
+            steps{
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'git@github.com:Bibek-DevOps/Flask-APP-CICD.git']]])
+            }
+        }
         stage('Cleanup dangling images'){
             steps{
                 sh '''
