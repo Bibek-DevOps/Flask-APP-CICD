@@ -16,15 +16,12 @@ pipeline {
     }
 
         stage('Building Docker Image') {
-            when {
-                branch 'master'
-            }
+    
             steps {
                 echo '=== Building Docker Image ==='
 
-                    script {
-                     
-                     app= docker.build("Bibek-DevOps/Flask-APP-CICD")
+                    script { 
+                    app= docker.build("Bibek-DevOps/Flask-APP-CICD")
                     
                 }
             }
@@ -32,9 +29,6 @@ pipeline {
         }
         
         stage('Push Docker Image') {
-            when {
-                branch 'master'
-            }
             steps {
                 echo '=== Pushing Docker Image to Registary ==='
                 script {
@@ -50,8 +44,8 @@ pipeline {
         stage('Remove local images') {
             steps {
                 echo '=== Delete the local docker images ==='
-                sh("docker rmi -f ibuchh/petclinic-spinnaker-jenkins:latest || :")
-                sh("docker rmi -f ibuchh/petclinic-spinnaker-jenkins:$SHORT_COMMIT || :")
+                sh("docker rmi -f Bibek-DevOps/Flask-APP-CICD:latest || :")
+                sh("docker rmi -f Bibek-DevOps/Flask-APP-CICD:$SHORT_COMMIT || :")
             }
         }
     }
