@@ -2,5 +2,5 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/devops-casestudy-20200608/flaskapp-image:$COMMIT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/gcr.io/devops-casestudy-20200608/flaskapp-image:$COMMIT_SHA']
+  args: ['push', 'gcr.io/devops-casestudy-20200608/flaskapp-image:$COMMIT_SHA']
 images: ['gcr.io/devops-casestudy-20200608/flaskapp-image:$COMMIT_SHA']
