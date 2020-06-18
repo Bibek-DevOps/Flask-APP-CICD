@@ -21,8 +21,7 @@ spec:
         app: flask-app
     spec:
       containers:
-        - image: >-
-            gcr.io/devops-casestudy-20200608/github.com/bibek-devops/flask-app-cicd
+        - image: gcr.io/devops-casestudy-20200608/github.com/bibek-devops/flask-app-cicd
           imagePullPolicy: Always
           name: falsk-app-image-1
 ---
@@ -50,12 +49,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask-app
-  labels:
-    run: flask-app
+  name: flask-app-service
 spec:
-  ports:
-  - port: 80
-    protocol: TCP
+  type: NodePort
   selector:
-    run: flask-app
+    app: flask-app
+  ports:
+    - port: 80
+      targetPort: 8080
+      nodePort: 30007

@@ -1,9 +1,9 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: flaskapp-ingress-sterlite
+  name: flaskapp-ingress
 spec:
   backend:
-    serviceName: kubernetes
+    serviceName: flask-app-service
     servicePort: 80
 
