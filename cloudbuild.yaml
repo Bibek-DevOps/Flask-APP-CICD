@@ -21,4 +21,4 @@ steps:
   - --image=gcr.io/devops-casestudy-20200608/mysql-flaskapp:$COMMIT_SHA
   - --location=us-central1-c
   - --cluster=flask-app-prod
-  - --namespaces=production
+  - --namespace=production
