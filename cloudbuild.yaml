@@ -14,5 +14,5 @@ steps:
   - --filename=./kubernetes/deployment.yaml
   - --image=gcr.io/devops-casestudy-20200608/mysql-flaskapp/prod:$COMMIT_SHA
   - --location=${_CLOUDSDK_COMPUTE_ZONE}
-  - --cluster= ${_CLOUDSDK_CONTAINER_CLUSTER}
+  - --cluster=${_CLOUDSDK_CONTAINER_CLUSTER}
   - --namespace=${_NAMESPACE}
