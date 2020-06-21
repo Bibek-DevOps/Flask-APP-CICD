@@ -25,7 +25,11 @@ spec:
     requests:
       storage: 20Gi
 ---
+<<<<<<< HEAD
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+=======
+apiVersion: apps/v1 
+>>>>>>> 9f2600ac1faf879d3d2af4112a986ffe2a1cca56
 kind: Deployment
 metadata:
   name: flask-app-mysql
