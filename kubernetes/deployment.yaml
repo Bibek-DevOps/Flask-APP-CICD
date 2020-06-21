@@ -21,7 +21,7 @@ spec:
         app: flask-app
     spec:
       containers:
-        - image: gcr.io/devops-casestudy-20200608/mysql-flaskapp
+        - image: gcr.io/devops-casestudy-20200608/mysql-flaskapp/prod
           imagePullPolicy: Always
           name: falsk-app-image-1
 ---
