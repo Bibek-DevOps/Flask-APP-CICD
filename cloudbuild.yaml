@@ -10,8 +10,8 @@ steps:
   args:
   - run
   - --filename=./kubernetes/deployment.yaml
-  - --image=gcr.io/devops-casestudy-20200608/mysql-flaskapp/prod:$COMMIT_SHA
-  - --location=asia-south1	
-  - --cluster= app-devlopment-gke
-  - --namespace=default
+  - --image=${_IMAGE_NAME}
+  - --location=${_CLOUDSDK_COMPUTE_ZONE}
+  - --cluster= ${_CLOUDSDK_CONTAINER_CLUSTER}
+  - --namespace=${_NAMESPACE}
 © 2020 GitHub, Inc.
