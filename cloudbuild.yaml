@@ -1,6 +1,17 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/devops-casestudy-20200608/bib-flaskapp', '.']
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/devops-casestudy-20200608/bib-flaskapp']
-images: ['gcr.io/devops-casestudy-20200608/bib-flaskapp']
+  # build the container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["build", "-t", "gcr.io/devops-casestudy-20200608/mysql-flaskapp-dev:$COMMIT_SHA", "."]
+  # push container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "gcr.io/devops-casestudy-20200608/mysql-flaskapp-dev:$COMMIT_SHA"]
+  # deploy container image to GKE
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args:
+  - run
+  - --filename=./kubernetes/deployment.yaml
+  - --image=gcr.io/devops-casestudy-20200608/mysql-flaskapp-dev:$COMMIT_SHA
+  - --location=asia-south1	
+  - --cluster= app-devlopment-gke
+  - --namespace=default
+© 2020 GitHub, Inc.
