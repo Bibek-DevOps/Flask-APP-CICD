@@ -2,9 +2,11 @@ steps:
   # build the container image
 - name: "gcr.io/cloud-builders/docker"
   args: ["build", "-t", "gcr.io/devops-casestudy-20200608/mysql-flaskapp/prod:$COMMIT_SHA", "."]
-  # push container image
+ 
+ # push container image
 - name: "gcr.io/cloud-builders/docker"
   args: ["push", "gcr.io/devops-casestudy-20200608/mysql-flaskapp/prod:$COMMIT_SHA"]
+  
   # deploy container image to GKE
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
@@ -14,4 +16,3 @@ steps:
   - --location=${_CLOUDSDK_COMPUTE_ZONE}
   - --cluster= ${_CLOUDSDK_CONTAINER_CLUSTER}
   - --namespace=${_NAMESPACE}
-© 2020 GitHub, Inc.
