@@ -12,6 +12,6 @@ steps:
   - run
   - --filename=./kubernetes/deployment.yaml
   - --image=gcr.io/devops-casestudy-20200608/mysql-flaskapp/prod:$COMMIT_SHA
-  - --location=us-central1-c
-  - --cluster=flask-app-prod
-  - --namespace=production
+  - --location=${_CLOUDSDK_COMPUTE_ZONE}
+  - --cluster= ${_CLOUDSDK_CONTAINER_CLUSTER}
+  - --namespace=${_NAMESPACE}
