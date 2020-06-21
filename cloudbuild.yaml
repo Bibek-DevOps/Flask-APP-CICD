@@ -10,7 +10,7 @@ steps:
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
-  - --filename=./kubernetes/deployment.yaml
+  - --filename=./kubernetes/kustomization.yaml
   - --image=gcr.io/devops-casestudy-20200608/mysql-flaskapp/prod:$COMMIT_SHA
   - --location=us-central1-c
   - --cluster=flask-app-prod
